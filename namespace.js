@@ -10,7 +10,7 @@ var CHHA0019 = {
         d.addEventListener("mouseout", CHHA0019.Highlightening);
     },
     on_click: function (ev) {
-        if (flagBool === true) {
+        if (flagBool == true) {
             flagBool = false;
             ev.currentTarget.style.backgroundColor = "pink";
             ev.currentTarget.style.borderColor = "blue";
