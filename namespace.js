@@ -1,27 +1,34 @@
 var CHHA0019 = {
     init: function () {
+        console.log("script in CHHA0019 called");
+        var div = document.createElement("div");
         var flagBool = false;
-        var d = document.createElement("div");
-        d.className("box");
-        d.textContent = "CHHA0019";
-        document.getElementById ("boxes").appendChild(d);
-        d.addEventListener("click", CHHA0019.on_click);
-        d.addEventListener("mouseover", CHHA0019.Highlightening);
-        d.addEventListener("mouseout", CHHA0019.Highlightening);
-    },
-    on_click: function (ev) {
-        if (flagBool == true) {
-            flagBool = false;
-            ev.currentTarget.style.backgroundColor = "pink";
-            ev.currentTarget.style.borderColor = "blue";
-        } else {
-            flagBool = true;
-            this.style.backgroundColor = "blue";
-            this.style.borderColor = "pink";
-        }
-    },
 
-    Highlightening: function (ev) {
-        ev.currentTarget.classList.toggle("highlight");
+        div.className = "box";
+        div.textContent = "CHHA0019";
+
+        document.getElementById("boxes").appendChild(div);
+
+        div.addEventListener("click", on_click);
+        div.addEventListener("mouseover", Highlightening);
+        div.addEventListener("mouseout", Highlightening);
+
+        function Highlightening(ev) {
+            this.classList.toggle("highlight");
+        }
+
+        function on_click(ev) {
+            if (flagBool == true) {
+                flagBool = false;
+                this.style.backgroundColor = "pink";
+                this.style.borderColor = "blue";
+            } else {
+                flagBool = true;
+                this.style.backgroundColor = "blue";
+                this.style.borderColor = "pink";
+            }
+
+        }
+
     }
-};
+}
